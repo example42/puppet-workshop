@@ -1,0 +1,9 @@
+read existing configurations
+
+puppet resource user root
+
+puppet resource file /etc/motd
+
+puppet resource package puppet-agent
+
+

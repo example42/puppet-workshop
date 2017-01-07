@@ -1,0 +1,2 @@
+hpi_demo_ntp::ntpservers:
+  - 'pool.ntp.org'

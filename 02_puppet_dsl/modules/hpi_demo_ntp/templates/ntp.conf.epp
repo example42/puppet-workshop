@@ -1,0 +1,10 @@
+
+<%- |
+  $ntpservers = []
+  | -%>
+
+<% $ntpservers.each |String $server| { -%>
+server <%= $server %>
+<% } -%>
+
+

@@ -1,0 +1,15 @@
+
+# /etc/puppetlabs/puppet/hiera.yaml
+---
+:backends:
+  - yaml
+
+:yaml:
+  :datadir: '/etc/puppetlabs/code/hieradata'
+
+:hierarchy:
+  - "nodes/%{::trusted.certname}"
+  - "datacenter/%{::trusted.datacenter}"
+  - common
+
+
