@@ -12,13 +12,13 @@ Class Definition
       case $::osfamily {
         'RedHat': {
           $pkgname = 'nginx'
-          $cfgfile = '/etc/nginx.conf'
+          $cfgfile = '/etc/nginx/nginx.conf'
           $runuser = 'apache'
           $svcname = 'nginx'
         }
         'SUSE': {
           $pkgname = 'nginx'
-          $cfgfile = '/etc/nginx.conf'
+          $cfgfile = '/etc/nginx/nginx.conf'
           $runuser = 'apache'
           $svcname = 'nginx'
         }
@@ -26,7 +26,7 @@ Class Definition
           fail('OS not supported.')
         }
       }
-      package { 'nginx':
+      package { 'nginx':
         ensure => present,
         name   => $pkgname:
       }
@@ -53,7 +53,7 @@ VHost Define:
       $docroot = "${nginx::docroot}/vhost",
       $port    = '80',
     ){
-      file { "/etc/ngonx/conf.d/${name}.conf":
+      file { "/etc/nginx/conf.d/${name}.conf":
         ensure  => file,
         content => template('nginx/vhost.erb'),
         notify  => Service['nginx'],
@@ -71,6 +71,13 @@ Klassen Deklaration
 
     # modules/nginx/examples/demo.pp
     include nginx
+    nginx::vhost { 'foobar.com': }
+    nginx::vhost { 'barfoo.com':
+      docroot => '/www2',
+    }
+    nginx::vhost { 'barbar.com':
+      port => 81,
+    }
 
 Anwenden des Moduls:
 

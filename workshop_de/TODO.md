@@ -1,0 +1,2 @@
+- vim puppet installation
+
