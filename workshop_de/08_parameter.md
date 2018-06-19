@@ -46,8 +46,19 @@ Class Definition
 
 Klassen Deklaration
 
+1. ohne Parameter:
+
     # modules/nginx/examples/demo.pp
     include nginx
+    # oder
+    class { 'nginx': }
+
+2. mit Parameter:
+
+    # module/nginx/examples/demo_with_parameter.pp
+    class { 'nginx':
+      docroot => '/opt/www',
+    }
 
 Anwenden des Moduls:
 
