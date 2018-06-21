@@ -2,7 +2,7 @@
 
 Hiera config Datei:
 
-1. Hiera config v3 (globale hiera Konfiguration):
+Hiera config v3 (globale hiera Konfiguration):
 
     # /etc/puppetlabs/puppet/hiera.yaml
     ---
@@ -15,7 +15,7 @@ Hiera config Datei:
     :yaml:
       :datadir: "/etc/puppetlabs/code/hieradata"
 
-2. Hiera config v5 (Hiera Konfiguration pro Environment)
+Hiera config v5 (Hiera Konfiguration pro Environment)
 
     # control-repo/hiera.yaml
     ---
