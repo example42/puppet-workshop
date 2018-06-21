@@ -2,6 +2,8 @@
 
 Hiera config Datei:
 
+1. Hiera config v3 (globale hiera Konfiguration):
+
     # /etc/puppetlabs/puppet/hiera.yaml
     ---
     :backends:
@@ -12,6 +14,23 @@ Hiera config Datei:
       - common
     :yaml:
       :datadir: "/etc/puppetlabs/code/hieradata"
+
+2. Hiera config v5 (Hiera Konfiguration pro Environment)
+
+    # control-repo/hiera.yaml
+    ---
+    version: 5
+
+    defaults:
+      datadir: data
+      data_hash: yaml_data
+
+    hierarchy:
+      - name: "hierarchies"
+        paths:
+          - "hosts/%{trusted.certname}.yaml"
+          - "location/%{facts.datacenter}.yaml"
+          - "common.yaml"
 
 Hiera Daten:
 
